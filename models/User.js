@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
   },
   cartItems: {
     type: Object,
-    default: [],
+    default: {},
   },
   // wishlistItems: {
   //   type: Array,
