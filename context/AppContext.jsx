@@ -83,7 +83,6 @@ export const AppContextProvider = (props) => {
         toast.success("Item added to cart");
       } catch (error) {
         toast.error("Something went wrong");
-        console.log(error);
       }
     }
   };

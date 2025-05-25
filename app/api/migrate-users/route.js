@@ -15,8 +15,6 @@ export async function POST(request) {
       ],
     });
 
-    console.log(`Found ${usersToUpdate.length} users to migrate`);
-
     // Update each user
     const updatePromises = usersToUpdate.map(async (user) => {
       user.cartItems = {};

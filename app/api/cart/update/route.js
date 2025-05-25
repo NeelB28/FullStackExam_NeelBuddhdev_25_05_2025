@@ -8,9 +8,6 @@ export async function POST(request) {
     const { userId } = getAuth(request);
     const { cartData } = await request.json();
 
-    console.log("userId:", userId);
-    console.log("cartData:", cartData);
-
     await dbConnect();
     const user = await User.findById(userId);
     if (!user) {
@@ -20,13 +17,8 @@ export async function POST(request) {
       );
     }
 
-    console.log("User found:", user._id);
-    console.log("Current cartItems:", user.cartItems);
-
     user.cartItems = cartData;
     await user.save();
-
-    console.log("Updated cartItems:", user.cartItems);
 
     return NextResponse.json(
       { success: true, message: "Cart updated successfully" },
